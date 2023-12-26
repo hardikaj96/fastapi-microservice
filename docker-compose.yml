@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+    command: ["poetry", "run", "app"]
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/app/app
+      - ./tests:/app/tests
+    networks:
+      - web
+    
+networks:
+  web:
+
